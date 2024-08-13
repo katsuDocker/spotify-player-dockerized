@@ -2,6 +2,12 @@ import express, { Express } from 'express'
 import bodyParser from 'body-parser'
 import session from 'express-session'
 
+declare module 'express-session' {
+  export interface SessionData {
+    spotifyAccount: { [key: string]: string }
+  }
+}
+
 export function Middleware(app: Express) {
   app.use(express.static('/static'))
 
