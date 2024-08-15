@@ -9,7 +9,7 @@ declare module 'express-session' {
 }
 
 export function Middleware(app: Express) {
-  app.use(express.static('/static'))
+  app.use(express.static('static'))
 
   // app.use(bodyParser.json())
   app.use(bodyParser.text())

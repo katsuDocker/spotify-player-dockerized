@@ -2,6 +2,7 @@ import { Express, Request, Response } from 'express'
 
 import { NoAuth } from './Pages/Login'
 import { IndexPage } from './Pages/Player'
+import { SpotifyMain } from './Modules/controller'
 
 export async function Routes(app: Express) {
   app.get('/', async (req, res) => {
@@ -13,4 +14,6 @@ export async function Routes(app: Express) {
       res.send(IndexPage(token['access_token']))
     }
   })
+
+  await SpotifyMain(app)
 }

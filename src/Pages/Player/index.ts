@@ -6,6 +6,8 @@ export function IndexPage(session: string) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>katzPlayer</title>
+    <link rel="stylesheet" href="/css/main.css"> 
+    <link rel="stylesheet" href="/css/player.css"> 
   </head>
   <body>
     <div class="container">
@@ -181,75 +183,6 @@ export function IndexPage(session: string) {
 
         player.connect();
       };
-    </script>
-
-    <script type="module">
-      import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
-
-      const socket = io();
-
-      socket.on("controller", (state) => {
-        if (state == "play") {
-          fetch("https://api.spotify.com/v1/me/player", {
-            headers: new Headers({
-              "Content-Type": "application/json; charset=UTF-8",
-              Authorization: "Bearer ${session}",
-            }),
-          })
-            .then((resp) => resp.json())
-            .then((resp) => {
-              if (resp.is_playing) {
-                fetch(
-                  "https://api.spotify.com/v1/me/player/pause?device_id=" +
-                    localStorage.getItem("device_id"),
-                  {
-                    method: "PUT",
-                    headers: new Headers({
-                      "Content-Type": "application/json; charset=UTF-8",
-                      Authorization: "Bearer ${session}",
-                    }),
-                  }
-                );
-              } else {
-                fetch(
-                  "https://api.spotify.com/v1/me/player/play?device_id=" +
-                    localStorage.getItem("device_id"),
-                  {
-                    method: "PUT",
-                    headers: new Headers({
-                      "Content-Type": "application/json; charset=UTF-8",
-                      Authorization: "Bearer ${session}",
-                    }),
-                  }
-                );
-              }
-            });
-        } else if (state == "prev") {
-          fetch(
-            "https://api.spotify.com/v1/me/player/previous?device_id=" +
-              localStorage.getItem("device_id"),
-            {
-              method: "POST",
-              headers: new Headers({
-                "Content-Type": "application/json; charset=UTF-8",
-                Authorization: "Bearer ${session}",
-              }),
-            }
-          );
-        } else if (state == "next") {
-          fetch(
-            "https://api.spotify.com/v1/me/player/next?device_id=" +
-              localStorage.getItem("device_id"),
-            {
-              method: "POST",
-              headers: new Headers({
-                "Content-Type": "application/json; charset=UTF-8",
-                Authorization: "Bearer ${session}",
-              }),
-            }
-          );
-        }
-      });
     </script>
   </body>
 </html>
