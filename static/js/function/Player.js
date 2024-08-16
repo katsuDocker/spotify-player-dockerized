@@ -74,6 +74,69 @@ function PlayerFunction() {
       player.nextTrack()
     }
 
+    document.getElementById('shuffle').onclick = () => {
+      if (localStorage.getItem('shuffle') != undefined) {
+        let state = localStorage.getItem('shuffle') == 'false' ? false : true
+
+        fetch(`https://api.spotify.com/v1/me/player/shuffle?state=${!state}`, {
+          method: 'PUT',
+          headers: new Headers({
+            Authorization: `Bearer ${sessionStorage.getItem('sessionToken')}`,
+          }),
+          body: JSON.stringify({
+            device_ids: [localStorage.getItem('device_id')],
+          }),
+        })
+
+        if (!state) {
+          document.querySelector('#shuffle').innerHTML = '🔀'
+        } else {
+          document.querySelector('#shuffle').innerHTML = '➡️'
+        }
+
+        localStorage.setItem('shuffle', !state)
+      }
+    }
+
+    document.getElementById('repeat').onclick = () => {
+      if (localStorage.getItem('repeat') != undefined) {
+        let state = Number(localStorage.getItem('repeat'))
+        let textState = ''
+
+        state += 1
+
+        if (state > 2) {
+          state = 0
+        }
+
+        if (state == 0) {
+          textState = 'off'
+          document.querySelector('#repeat').innerHTML = '➡️'
+        } else if (state == 1) {
+          textState = 'context'
+          document.querySelector('#repeat').innerHTML = '🔁'
+        } else {
+          textState = 'track'
+          document.querySelector('#repeat').innerHTML = '🔂'
+        }
+
+        fetch(
+          `https://api.spotify.com/v1/me/player/repeat?state=${textState}`,
+          {
+            method: 'PUT',
+            headers: new Headers({
+              Authorization: `Bearer ${sessionStorage.getItem('sessionToken')}`,
+            }),
+            body: JSON.stringify({
+              device_ids: [localStorage.getItem('device_id')],
+            }),
+          }
+        )
+
+        localStorage.setItem('repeat', state)
+      }
+    }
+
     document.getElementById('volDown').onclick = function () {
       player.getVolume().then((volume) => {
         player.setVolume(volume - 0.05)
@@ -136,13 +199,29 @@ function PlayerFunction() {
 
       MediaControlling(data)
 
+      localStorage.setItem('shuffle', state.shuffle)
+      localStorage.setItem('repeat', state.repeat_mode)
+
       // Controller
       document.querySelector('#durationBar').setAttribute('max', state.duration)
-      console.log(state)
       if (state.paused) {
         document.querySelector('#togglePlay').innerHTML = '▶️'
       } else {
         document.querySelector('#togglePlay').innerHTML = '⏸️'
+      }
+
+      if (state.shuffle) {
+        document.querySelector('#shuffle').innerHTML = '🔀'
+      } else {
+        document.querySelector('#shuffle').innerHTML = '➡️'
+      }
+
+      if (state.repeat_mode == 0) {
+        document.querySelector('#repeat').innerHTML = '➡️'
+      } else if (state.repeat_mode == 1) {
+        document.querySelector('#repeat').innerHTML = '🔁'
+      } else {
+        document.querySelector('#repeat').innerHTML = '🔂'
       }
     })
 
