@@ -20,7 +20,7 @@ function PlayerFunction(session) {
           Authorization: `Bearer ${session}`,
         }),
         body: JSON.stringify({
-          device_ids: [device_id],
+          device_ids: [localStorage.getItem('device_id')],
           play: true,
         }),
       })
@@ -126,6 +126,15 @@ function PlayerFunction(session) {
       document.querySelector('#track-title').innerHTML = trackName
       document.querySelector('#track-artist').innerHTML = trackArtist
       document.querySelector('#track-playlist').innerHTML = playlist
+
+      const data = {
+        title: trackName,
+        artist: trackArtist,
+        playlist: playlist,
+        cover: trackImage,
+      }
+
+      MediaControlling(data, session)
 
       // Controller
       document.querySelector('#durationBar').setAttribute('max', state.duration)

@@ -61,8 +61,11 @@ export function IndexPage(session: string) {
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script src="/js/Tabs.js"></script>
+
     <script src="/js/function/SecToMin.js"></script>
     <script src="/js/function/Player.js"></script>
+    <script src="/js/function/MediaController.js"></script>
 
     <script>
       PlayerFunction('${session}')
