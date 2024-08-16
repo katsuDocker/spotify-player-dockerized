@@ -98,7 +98,7 @@ button:hover {
 /* Control Controller */
 .controller #control-controller button {
   font-size: 20px;
-  padding: .5rem !important;
+  padding: .5rem .7rem !important;
   font-family: 'Noto Emoji', sans-serif;
 }
 
