@@ -1,0 +1,59 @@
+#playlist-controller {
+  width: 20rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+#playlist-controller div.playlist-container {
+  width: 20rem;
+  height: 5rem !important;
+
+  background: whitesmoke;
+  color: #2e2f2f;
+  border-radius: 1rem;
+
+  display: flex;
+  justify-content: start;
+  gap: .2rem;
+}
+
+#playlist-controller div.playlist-container div.playlist-cover {
+  width: 5rem !important;
+  height: 5rem !important;
+
+  border-radius: 1rem;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+#playlist-controller div.playlist-container div.info-container {
+  width: 13rem;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+#playlist-controller div.playlist-container div.info-container * {
+  margin: 0;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#playlist-controller div.playlist-container div.info-container p {
+  width: 13rem;
+  text-align: left;
+}
+
+#playlist-controller div.playlist-container div.info-container span {
+  color: grey;
+}
