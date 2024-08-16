@@ -1,6 +1,6 @@
-function PlayerFunction(session) {
+function PlayerFunction() {
   window.onSpotifyWebPlaybackSDKReady = () => {
-    const token = `${session}`
+    const token = `${sessionStorage.getItem('sessionToken')}`
     const player = new Spotify.Player({
       name: 'katz',
       getOAuthToken: (cb) => {
@@ -17,7 +17,7 @@ function PlayerFunction(session) {
         method: 'PUT',
         headers: new Headers({
           'Content-Type': 'application/json; charset=UTF-8',
-          Authorization: `Bearer ${session}`,
+          Authorization: `Bearer ${sessionStorage.getItem('sessionToken')}`,
         }),
         body: JSON.stringify({
           device_ids: [localStorage.getItem('device_id')],
@@ -134,10 +134,11 @@ function PlayerFunction(session) {
         cover: trackImage,
       }
 
-      MediaControlling(data, session)
+      MediaControlling(data)
 
       // Controller
       document.querySelector('#durationBar').setAttribute('max', state.duration)
+      console.log(state)
       if (state.paused) {
         document.querySelector('#togglePlay').innerHTML = '▶️'
       } else {

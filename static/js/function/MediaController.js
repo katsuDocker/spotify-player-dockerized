@@ -1,4 +1,4 @@
-function MediaControlling(data, session) {
+function MediaControlling(data) {
   if ('mediaSession' in navigator) {
     navigator.mediaSession.metadata = new MediaMetadata({
       title: data.title,
@@ -43,7 +43,7 @@ function MediaControlling(data, session) {
         method: 'PUT',
         headers: new Headers({
           'Content-Type': 'application/json; charset=UTF-8',
-          Authorization: `Bearer ${session}`,
+          Authorization: `Bearer ${sessionStorage.getItem('sessionToken')}`,
         }),
         body: JSON.stringify({
           device_ids: [localStorage.getItem('device_id')],
@@ -55,7 +55,7 @@ function MediaControlling(data, session) {
         method: 'PUT',
         headers: new Headers({
           'Content-Type': 'application/json; charset=UTF-8',
-          Authorization: `Bearer ${session}`,
+          Authorization: `Bearer ${sessionStorage.getItem('sessionToken')}`,
         }),
         body: JSON.stringify({
           device_ids: [localStorage.getItem('device_id')],
@@ -67,7 +67,7 @@ function MediaControlling(data, session) {
         method: 'POST',
         headers: new Headers({
           'Content-Type': 'application/json; charset=UTF-8',
-          Authorization: `Bearer ${session}`,
+          Authorization: `Bearer ${sessionStorage.getItem('sessionToken')}`,
         }),
         body: JSON.stringify({
           device_ids: [localStorage.getItem('device_id')],
@@ -79,7 +79,7 @@ function MediaControlling(data, session) {
         method: 'POST',
         headers: new Headers({
           'Content-Type': 'application/json; charset=UTF-8',
-          Authorization: `Bearer ${session}`,
+          Authorization: `Bearer ${sessionStorage.getItem('sessionToken')}`,
         }),
         body: JSON.stringify({
           device_ids: [localStorage.getItem('device_id')],
