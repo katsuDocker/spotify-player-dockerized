@@ -17,37 +17,42 @@ export function IndexPage(session: string) {
         </div>
       </div>
       <div class="controller">
-        <div class="detailed">
-          <h2 id="track-title"></h2>
-          <h4 id="track-artist"></h4>
-          <div id="track-playlist"></div>
+        <div class="tab">
+
         </div>
-        <div class="detailed">
-          <input
-            id="durationBar"
-            type="range"
-            min="0"
-            step="0.1"
-            value="0"
-            max="220946"
-          />
+        <div id="control-controller">
+          <div class="detailed">
+            <h2 id="track-title"></h2>
+            <h4 id="track-artist"></h4>
+            <div id="track-playlist"></div>
+          </div>
+          <div class="detailed">
+            <input
+              id="durationBar"
+              type="range"
+              min="0"
+              step="0.1"
+              value="0"
+              max="220946"
+            />
+          </div>
+          <div class="controller-manager">
+            <button id="prev">⏮️</button>
+            <button id="togglePlay"></button>
+            <button id="next">⏭️</button>
+          </div>
+          <div class="volume">
+            <button id="volDown">
+              ➖
+            </button>
+            <span id="vol">
+              0
+            </span>
+            <button id="volUp">
+              ➕
+            </button>
+          </div> 
         </div>
-        <div class="controller-manager">
-          <button id="prev">⏮️</button>
-          <button id="togglePlay"></button>
-          <button id="next">⏭️</button>
-        </div>
-        <div class="volume">
-          <button id="volDown">
-            ➖
-          </button>
-          <span id="vol">
-            0
-          </span>
-          <button id="volUp">
-            ➕
-          </button>
-        </div> 
       </div>
     </div>
 
