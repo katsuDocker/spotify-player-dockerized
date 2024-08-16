@@ -39,9 +39,11 @@ export function IndexPage(session: string) {
             />
           </div>
           <div class="controller-manager">
+            <button id="shuffle"></button>
             <button id="prev">⏮️</button>
             <button id="togglePlay"></button>
             <button id="next">⏭️</button>
+            <button id="repeat"></button>
           </div>
           <div class="volume">
             <button id="volDown">➖</button>

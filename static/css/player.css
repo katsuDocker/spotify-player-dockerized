@@ -97,10 +97,16 @@ button:hover {
 
 /* Control Controller */
 .controller #control-controller button {
-  font-size: 24px;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  font-size: 20px;
+  padding: .5rem !important;
   font-family: 'Noto Emoji', sans-serif;
+}
+
+.controller #control-controller .controller-manager {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: .1rem;
 }
 
 .controller #control-controller {
