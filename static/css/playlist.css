@@ -19,6 +19,12 @@
   gap: .2rem;
 }
 
+#playlist-controller div.playlist-container:hover {
+  opacity: .6;
+  cursor: pointer;
+  transform: scale(.90);
+}
+
 #playlist-controller div.playlist-container div.playlist-cover {
   width: 5rem !important;
   height: 5rem !important;
