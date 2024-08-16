@@ -3,7 +3,7 @@
   height: 100vh;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -52,8 +52,7 @@ button:hover {
 .cover img {
   width: 100%;
   height: auto;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-radius: 1rem;
 }
 
 .playerDetailed .detailed {
@@ -75,15 +74,56 @@ button:hover {
   padding: 1rem;
   background: #2e2f2f;
   border-radius: 1rem;
-}
 
-.controller .detailed input#durationBar {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .controller button {
   font-size: 24px;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  font-family: "Noto Emoji", sans-serif;
+  font-family: 'Noto Emoji', sans-serif;
+}
+
+.controller .detailed {
+  width: 20rem;
+}
+
+.controller .detailed h2,
+.controller .detailed h4,
+.controller .detailed div {
+  margin: 0;
+  padding: .2rem;
+  color: whitesmoke;
+}
+
+.controller .detailed input#durationBar {
+  width: 100%;
+}
+
+.controller .volume {
+  width: 20rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.controller .volume * {
+  font-size: 20px;
+}
+
+.controller .volume button {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  font-family: 'Noto Emoji', sans-serif;
+}
+
+.controller .volume span {
+  margin: 0 .5rem;
+  color: whitesmoke;
 }
