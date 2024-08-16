@@ -48,17 +48,18 @@ function PlayerFunction(session) {
     })
 
     player.addListener('initialization_error', ({ message }) => {
-      console.error(message)
+      console.log(message)
       window.location.replace('/api/auth/logout')
     })
 
     player.addListener('authentication_error', ({ message }) => {
-      console.error(message)
+      console.log(message)
       window.location.replace('/api/auth/logout')
     })
 
     player.addListener('account_error', ({ message }) => {
-      console.error(message)
+      console.log(message)
+      window.location.replace('/api/auth/logout')
     })
 
     document.getElementById('togglePlay').onclick = function () {
@@ -75,17 +76,17 @@ function PlayerFunction(session) {
 
     document.getElementById('volDown').onclick = function () {
       player.getVolume().then((volume) => {
-        player.setVolume(volume - 0.1)
+        player.setVolume(volume - 0.05)
 
-        setVolumeElement(volume - 0.1)
+        setVolumeElement(volume - 0.05)
       })
     }
 
     document.getElementById('volUp').onclick = function () {
       player.getVolume().then((volume) => {
-        player.setVolume(volume + 0.1)
+        player.setVolume(volume + 0.05)
 
-        setVolumeElement(volume + 0.1)
+        setVolumeElement(volume + 0.05)
       })
     }
 
