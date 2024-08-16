@@ -16,6 +16,10 @@ body {
   background-position: center !important;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .container {
   width: 100%;
   height: 100vh;

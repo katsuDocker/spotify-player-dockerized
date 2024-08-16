@@ -2,12 +2,12 @@ export function IndexPage(session: string) {
   const index = `<!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>katzPlayer</title>
-    <link rel="stylesheet" href="/css/main.css"> 
-    <link rel="stylesheet" href="/css/player.css"> 
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/player.css" />
   </head>
   <body>
     <div class="container">
@@ -17,8 +17,13 @@ export function IndexPage(session: string) {
         </div>
       </div>
       <div class="controller">
-        <div class="tab">
-
+        <div id="tab">
+          <button id="control-button">
+            Control Center
+          </button>
+          <button id="playlist-button">
+            Your Playlist
+          </button>
         </div>
         <div id="control-controller">
           <div class="detailed">
@@ -42,16 +47,15 @@ export function IndexPage(session: string) {
             <button id="next">⏭️</button>
           </div>
           <div class="volume">
-            <button id="volDown">
-              ➖
-            </button>
-            <span id="vol">
-              0
-            </span>
-            <button id="volUp">
-              ➕
-            </button>
-          </div> 
+            <button id="volDown">➖</button>
+            <span id="vol"> 0 </span>
+            <button id="volUp">➕</button>
+          </div>
+        </div>
+        <div id="playlist-controller" class="hidden">
+          <h1>
+            Hey
+          </h1>
         </div>
       </div>
     </div>
@@ -68,7 +72,7 @@ export function IndexPage(session: string) {
     <script src="/js/function/MediaController.js"></script>
 
     <script>
-      PlayerFunction('${session}')
+      PlayerFunction("${session}");
     </script>
   </body>
 </html>
