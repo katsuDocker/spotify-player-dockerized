@@ -3,7 +3,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 #playlist-controller div.playlist-container {
@@ -16,13 +16,13 @@
 
   display: flex;
   justify-content: start;
-  gap: .2rem;
+  gap: 0.2rem;
 }
 
 #playlist-controller div.playlist-container:hover {
-  opacity: .6;
+  opacity: 0.6;
   cursor: pointer;
-  transform: scale(.90);
+  transform: scale(0.9);
 }
 
 #playlist-controller div.playlist-container div.playlist-cover {
@@ -44,7 +44,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: .2rem;
+  gap: 0.2rem;
 }
 
 #playlist-controller div.playlist-container div.info-container * {
@@ -62,4 +62,17 @@
 
 #playlist-controller div.playlist-container div.info-container span {
   color: grey;
+}
+
+#playlist-controller div#page-controller {
+  width: 20rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#playlist-controller div#page-controller span {
+  color: whitesmoke !important;
 }
