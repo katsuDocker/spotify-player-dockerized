@@ -38,13 +38,42 @@ async function PlayList(page) {
     }),
   })
 
+  if (list.status != 200) {
+    window.location.replace('/api/auth/logout')
+  }
+
   const parsedList = await list.json()
+
+  let pageLength = Math.round(parsedList.items.length / 4)
+
+  if (page >= pageLength) {
+    page = pageLength - 1
+  }
 
   let temp = ''
 
-  for (let i = 0; i < 4; i++) {
+  console.log(page)
+  console.log(page * 4)
+
+  for (let i = page * 4; i < page * 4 + 4; i++) {
     temp += await ListElement(parsedList.items[i])
   }
+
+  temp += `<div id="page-controller">
+  <button onclick="PlayList(${Number(page - 1)})">
+    ◀️
+  </button>
+  <span>
+    ${
+      String(Number(page + 1)).length < 2
+        ? `0${Number(page + 1)}`
+        : Number(page + 1)
+    } / ${pageLength}
+  </span>
+  <button onclick="PlayList(${Number(page + 1)})">
+    ▶️
+  </button>
+</div>`
 
   PlayListElement.innerHTML = temp
 }
