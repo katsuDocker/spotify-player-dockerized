@@ -13,6 +13,7 @@ function PlayerFunction() {
     player.addListener('ready', ({ device_id }) => {
       console.log('Ready with Device ID', device_id)
       localStorage.setItem('device_id', device_id)
+      localStorage.setItem('expire_time', new Date().getTime() + 3600000)
       fetch('https://api.spotify.com/v1/me/player', {
         method: 'PUT',
         headers: new Headers({

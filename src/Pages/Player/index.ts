@@ -65,6 +65,7 @@ export function IndexPage(session: string) {
     <script src="/js/Tabs.js"></script>
 
     <script src="/js/function/SecToMin.js"></script>
+    <script src="/js/function/Expired.js"></script>
     <script src="/js/function/Player.js"></script>
     <script src="/js/function/Playlist.js"></script>
     <script src="/js/function/MediaController.js"></script>
