@@ -1,6 +1,8 @@
 import { Request, Response } from 'express'
 import SpotifyWebApi from 'spotify-web-api-node'
 
+import { random } from '../functions/random'
+
 export async function AuthIn(req: Request, res: Response, sAPI: SpotifyWebApi) {
   const scopes = [
     'ugc-image-upload',
@@ -24,7 +26,7 @@ export async function AuthIn(req: Request, res: Response, sAPI: SpotifyWebApi) {
     'user-read-private',
   ]
 
-  var authUrl = sAPI.createAuthorizeURL(scopes, 'katzPlayer', true)
+  var authUrl = sAPI.createAuthorizeURL(scopes, random(16), true)
   res.redirect(authUrl)
 }
 
