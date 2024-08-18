@@ -3,6 +3,7 @@ let x = setInterval(() => {
 
   if (localStorage.getItem('expire_time') != undefined) {
     if (timeStamp >= localStorage.getItem('expire_time')) {
+      localStorage.removeItem('expire_time')
       window.location.replace('/api/auth/logout')
     }
   }
